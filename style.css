@@ -1,5 +1,5 @@
 :root{
-  --ink:#14181F; --muted:#5B6472; --paper:#FFFFFF; --alt:#F3F5F8; --line:#E1E5EB;
+  --ink:#14181F; --muted:#14181F; --paper:#FFFFFF; --alt:#F3F5F8; --line:#E1E5EB;
   --accent:#2F4BFF; --green:#1F9D6B;
   --head:'Bricolage Grotesque',system-ui,sans-serif; --body:'Inter',system-ui,sans-serif;
 }
@@ -31,7 +31,26 @@ img{max-width:100%}
 /* nav */
 .site-nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .navbar{padding:.7rem 0}
-.navbar-brand{font-family:var(--head);font-weight:700;font-size:1.15rem;letter-spacing:-.01em}
+.navbar-brand {
+  font-family: var(--head);
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: -.01em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.nav-dp {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  border: 2px solid var(--accent);
+  box-shadow: 0 2px 8px rgba(47, 75, 255, 0.15);
+  flex-shrink: 0;
+}
 .nav-link{font-size:.95rem;font-weight:500;color:var(--muted)!important;padding:.5rem .8rem!important;position:relative}
 .nav-link:hover,.nav-link.active{color:var(--ink)!important}
 .nav-link.active::after{content:"";position:absolute;left:.8rem;right:.8rem;bottom:.15rem;height:2px;background:var(--accent);border-radius:2px; transition: all 0.3s ease;}
@@ -148,6 +167,13 @@ img{max-width:100%}
 }
 
 /* projects */
+#work {
+  background-image: url('assets/works_bg.png');
+  background-size: 100% 100%; /* Fits the full image to the exact width and height without cropping */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .project{background:#fff;border:1px solid var(--line);border-radius:22px;padding:clamp(1rem,3vw,2.5rem);margin-bottom:2rem; transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;}
 .project:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(20, 24, 31, 0.05); }
 .project h3{font-size:clamp(1.5rem,3vw,2.1rem);font-weight:700;margin:.8rem 0 .4rem}
@@ -172,11 +198,12 @@ img{max-width:100%}
    HELP SECTION
    ========================================================= */
 .help-section {
-  background: 
-    radial-gradient(circle at 0% 0%, rgba(47, 82, 255, 0.04), transparent 40%),
-    radial-gradient(circle at 100% 100%, rgba(47, 82, 255, 0.04), transparent 40%),
-    #fafbff;
-  padding: clamp(2.5rem, 3vw, 2.5rem) 0; /* Shrinks PC gap, leaves mobile untouched */
+  background-color: #fafbff;
+  background-image: url('assets/servicesandwhy_bg.png');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: clamp(2.5rem, 3vw, 2.5rem) 0;
 }
 
 .help-header {
@@ -274,11 +301,12 @@ h2#help-h {
    WHY CHOOSE ME SECTION
    ========================================================= */
 .why-section {
-  background: 
-    radial-gradient(circle at 100% 0%, rgba(47, 82, 255, 0.04), transparent 40%),
-    radial-gradient(circle at 0% 100%, rgba(47, 82, 255, 0.04), transparent 40%),
-    #f8f9fc; 
-  padding: clamp(2.5rem, 3vw, 2.5rem) 0; /* Shrinks PC gap, leaves mobile untouched */
+  background-color: #f8f9fc;
+  background-image: url('assets/servicesandwhy_bg.png');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: clamp(2.5rem, 3vw, 2.5rem) 0;
 }
 
 .why-header {
@@ -381,6 +409,9 @@ h2#help-h {
   position: relative;
 }
 
+.cta .lead-text {
+  color: #ffffff;
+}
 .contact-line {
   margin: 2.75rem 0 0; 
   color: #AEB7C6;
@@ -405,11 +436,18 @@ h2#help-h {
 /* =========================================================
    ABOUT SECTION — PROFILE DESIGN
    ========================================================= */
+/* =========================================================
+   ABOUT SECTION — PROFILE DESIGN
+   ========================================================= */
 .about-section {
   position: relative;
   overflow: hidden;
   padding: clamp(2.5rem, 5vw, 4.5rem) 0;
-  background: #ffffff;
+  background-color: #ffffff;
+  background-image: url('assets/about_bg.png');
+  background-size: 100% 100%; /* Stretches responsively to fit exact width & height with zero cutoff */
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .about-section::before {
@@ -617,8 +655,47 @@ h2#help-h {
 }
 
 .about-content p {
-  font-size: 1.05rem;
+  font-size: 1.02rem;
   color: var(--muted);
+  margin-bottom: 1.15rem;
+}
+
+/* Big, bold comic/editorial style opening hook */
+.about-content .about-hook {
+  font-family: var(--head);
+  font-size: clamp(1.85rem, 3.4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.35rem;
+}
+
+.about-content .about-hook span {
+  color: var(--accent);
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+}
+
+/* Slanted graphic-style highlight bar behind "purpose," */
+.about-content .about-hook span::after {
+  content: "";
+  position: absolute;
+  left: -4px;
+  right: -4px;
+  bottom: 4px;
+  height: 10px;
+  background: rgba(47, 75, 255, 0.16);
+  transform: skewX(-12deg);
+  z-index: -1;
+  border-radius: 3px;
+}
+
+/* Emphasize the final closing line */
+.about-content .about-closing {
+  font-weight: 600;
+  color: var(--ink);
   margin-bottom: 1.5rem;
 }
 
@@ -702,6 +779,13 @@ h2#help-h {
    MOBILE & ALL-DEVICE OPTIMIZATIONS (GLOBAL)
    ========================================================= */
 @media (max-width: 767.98px) {
+
+  #work {
+    background-size: contain; /* Keeps original image proportions without cutting anything off */
+    background-position: top center;
+    background-repeat: repeat-y; /* Repeats smoothly down the tall mobile section */
+  }
+  
   .hero {
     padding: 3rem 0 0.75rem; /* Reduced bottom padding so text sits at the very edge */
     background-image: url('assets/mob_banner.png');
@@ -789,9 +873,11 @@ h2#help-h {
     font-size: clamp(0.5rem, 2.2vw, 0.85rem); /* Dynamically shrinks font so it fits on narrow phones */
   }
 /* KEEP PREVIOUS MOBILE FIXES BELOW */
-  .services-section {
-    background-size: cover; 
-    background-position: top center;
+.services-section,
+  #work,
+  .about-section {
+    background-size: 100% 100%;
+    background-position: center;
   }
   /* Center the Services heading on mobile to match other sections */
   .services-section > .container > .rv:first-child {
